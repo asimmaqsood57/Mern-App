@@ -27,6 +27,11 @@ function App() {
       newFoodName: newFoodName,
     });
   };
+  const deleteFood = (id) => {
+    // console.log(foodName, days);
+    // console.log(id);
+    Axios.delete(`http://localhost:3001/delete/${id}`);
+  };
 
   useEffect(() => {
     Axios.get("http://localhost:3001/read").then((response) => {
@@ -75,7 +80,7 @@ function App() {
               id=""
             />
             <button onClick={() => updateFood(val._id)}>Update</button>
-            <button>Delete</button>
+            <button onClick={() => deleteFood(val._id)}>Delete</button>
           </div>
         );
       })}
