@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 // import { response } from "express";
 
 function App() {
-  const [foodName, setfoodName] = useState("");
+  const [foodName, setFoodName] = useState("");
   const [days, setdays] = useState(0);
 
   const [newFoodName, setnewFoodName] = useState("");
@@ -46,7 +46,7 @@ function App() {
         type="text"
         placeholder="Enter food name"
         onChange={(e) => {
-          setnewFoodName(e.target.value);
+          setFoodName(e.target.value);
         }}
         name=""
         id=""
