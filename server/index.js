@@ -5,6 +5,8 @@ const express = require("express");
 //mongodb+srv://new-user_31:<password>@mern-app.ztkdk.mongodb.net/test
 const mongoose = require("mongoose");
 
+const cors = require("cors");
+
 const FoodModel = require("./models/Food");
 const app = express();
 
@@ -20,11 +22,15 @@ mongoose
     console.log("database connection successful");
   });
 app.use(express.json());
+app.use(cors());
 
-app.get("/", async (req, res) => {
+app.post("/insert", async (req, res) => {
+  const foodName = req.body.foodName;
+  const days = req.body.days;
+
   const food = new FoodModel({
-    foodName: "Apple",
-    daysSinceIAte: 3,
+    foodName: foodName,
+    daysSinceIAte: days,
   });
 
   try {
