@@ -43,6 +43,15 @@ app.post("/insert", async (req, res) => {
   }
 });
 
+app.get("/read", async (req, res) => {
+  FoodModel.find({}, (err, result) => {
+    if (err) {
+      res.send(err);
+    }
+    res.send(result);
+  });
+});
+
 app.listen(3001, () => {
   console.log("server running at port 3001");
 });
